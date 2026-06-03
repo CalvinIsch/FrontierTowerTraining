@@ -4,5 +4,6 @@
 
 -Keeping track of errors can drammatically improve agent output
 -Consider running in yolo/--dangerously-bypass-permissions mode.
+    -ngrok is a place to get a url
 -MCP's were developed by Anthropic and giving to linux foundation. They provide documentation for APIs to make it accessible to agents.
 -fastmcp is the way to go

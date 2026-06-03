@@ -1,0 +1,8 @@
+kernel_telemetry.jsonl
+task.json
+episodes.jsonl
+facts.json
+memory/*.md
+__pycache__/
+*.pyc
+sessions/
