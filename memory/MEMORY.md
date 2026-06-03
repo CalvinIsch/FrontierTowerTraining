@@ -1,0 +1,3 @@
+- [package-manager](package-manager.md) — project uses pnpm as the package manager not npm or yarn
+- [deploy-script](deploy-script.md) — production deployment runs via scripts/deploy.sh
+- [old-deploy](old-deploy.md) — old deployment used scripts/old_deploy.sh before migration
