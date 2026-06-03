@@ -15,10 +15,8 @@ import json
 import time
 
 import uvicorn
-from starlette.applications import Starlette
-from starlette.requests import Request
-from starlette.responses import JSONResponse
-from starlette.routing import Route
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 
 NAME   = "agent-b"
 PORT   = 8801
@@ -91,10 +89,15 @@ def _summarize(text: str) -> str:
 # Routes
 # ---------------------------------------------------------------------------
 
-async def agent_card(_: Request) -> JSONResponse:
+app = FastAPI()
+
+
+@app.get("/.well-known/agent-card.json")
+async def agent_card() -> JSONResponse:
     return JSONResponse(AGENT_CARD, headers={"Access-Control-Allow-Origin": "*"})
 
 
+@app.post("/tasks")
 async def tasks(request: Request) -> JSONResponse:
     envelope = await request.json()
     sender = envelope.get("from", "unknown")
@@ -118,12 +121,6 @@ async def tasks(request: Request) -> JSONResponse:
         return JSONResponse({"body": result_body, "sig": sign(result_body)})
 
     return JSONResponse({"error": f"unknown intent: {intent}"}, status_code=400)
-
-
-app = Starlette(routes=[
-    Route("/.well-known/agent-card.json", agent_card, methods=["GET"]),
-    Route("/tasks", tasks, methods=["POST"]),
-])
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=PORT, log_level="warning")

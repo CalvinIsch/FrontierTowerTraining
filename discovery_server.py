@@ -12,10 +12,8 @@ import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from starlette.applications import Starlette
-from starlette.requests import Request
-from starlette.responses import JSONResponse, Response
-from starlette.routing import Mount, Route
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 
 from schema_server import mcp  # reuse the validated tool set from Lab 03
 
@@ -27,24 +25,29 @@ def _load(filename: str) -> dict:
         return json.load(f)
 
 
-async def ai_agent_manifest(request: Request) -> Response:
+# FastMCP requires its lifespan (session manager startup) passed to the parent app
+_mcp_app = mcp.http_app(path="/mcp")
+app = FastAPI(lifespan=_mcp_app.lifespan)
+
+
+@app.get("/.well-known/ai-agent.json")
+async def ai_agent_manifest() -> JSONResponse:
     return JSONResponse(
         _load("ai-agent.json"),
         headers={"Access-Control-Allow-Origin": "*"},
     )
 
 
-async def agent_card(request: Request) -> Response:
+@app.get("/.well-known/agent-card.json")
+async def agent_card() -> JSONResponse:
     return JSONResponse(
         _load("agent-card.json"),
         headers={"Access-Control-Allow-Origin": "*"},
     )
 
 
-# Build the combined ASGI app: start from FastMCP's own app, add well-known routes
-app = mcp.http_app(path="/mcp")
-app.add_route("/.well-known/ai-agent.json", ai_agent_manifest, methods=["GET"])
-app.add_route("/.well-known/agent-card.json", agent_card, methods=["GET"])
+# FastAPI's specific routes above take priority; everything else goes to FastMCP
+app.mount("/", _mcp_app)
 
 if __name__ == "__main__":
     import uvicorn

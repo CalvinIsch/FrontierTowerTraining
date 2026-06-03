@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from fastmcp import FastMCP
 from fastmcp.exceptions import ToolError
-from starlette.requests import Request
-from starlette.responses import JSONResponse
+from fastapi import Request
+from fastapi.responses import JSONResponse
 
 BASE = "http://127.0.0.1:8000"
 METADATA_URL = f"{BASE}/.well-known/oauth-protected-resource"
