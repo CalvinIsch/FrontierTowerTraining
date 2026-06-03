@@ -1,0 +1,5 @@
+{"ts": 1780524313.500275, "event": "deploy-succeeded", "detail": "scripts/deploy.sh --env production"}
+{"ts": 1780524313.50037, "event": "fetch-failed", "detail": "HTTP 429 on user 42"}
+{"ts": 1780524313.5004082, "event": "deploy-succeeded", "detail": "scripts/deploy.sh --env production"}
+{"ts": 1780524313.500443, "event": "fetch-failed", "detail": "HTTP 404 on user 99"}
+{"ts": 1780524313.500476, "event": "deploy-succeeded", "detail": "scripts/deploy.sh --env production"}

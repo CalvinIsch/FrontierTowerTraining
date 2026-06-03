@@ -1,0 +1,6 @@
+{
+  "package-manager": "pnpm \u2014 never use npm",
+  "error-taxonomy": "AUTH_EXPIRED / RATE_LIMIT / NOT_FOUND / TRANSIENT",
+  "deploy-succeeded": "scripts/deploy.sh --env production (seen 3x)",
+  "fetch-failed": "HTTP 404 on user 99 (seen 2x)"
+}

@@ -1,0 +1,10 @@
+{
+  "plan": [
+    "pull data",
+    "write report",
+    "ship"
+  ],
+  "done": [
+    "pull data"
+  ]
+}
