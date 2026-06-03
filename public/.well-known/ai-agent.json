@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "name": "toolsmith",
+  "description": "Stores and retrieves per-user notes, and classifies HTTP error codes into typed error kinds.",
+  "capabilities": {
+    "mcp": {
+      "endpoint": "http://127.0.0.1:8000/mcp"
+    }
+  },
+  "agent_card": "http://127.0.0.1:8000/.well-known/agent-card.json",
+  "auth": {
+    "type": "none"
+  },
+  "contact": "calvin.isch@asc.upenn.edu"
+}

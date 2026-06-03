@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "name": "toolsmith",
+  "skills": [
+    {
+      "id": "add",
+      "description": "Add two integers and return their sum.",
+      "input": {"a": "integer", "b": "integer"},
+      "output": "integer",
+      "url": "http://127.0.0.1:8000/mcp"
+    },
+    {
+      "id": "get_notes",
+      "description": "Return all notes stored for a single user. Call when you need the complete note history for one specific user.",
+      "input": {"user_id": "string"},
+      "output": "array of strings",
+      "url": "http://127.0.0.1:8000/mcp"
+    },
+    {
+      "id": "search_notes",
+      "description": "Search all users' notes for lines containing a query string. Call when you don't know which user's notes contain the answer.",
+      "input": {"query": "string"},
+      "output": "object mapping user_id to matching notes",
+      "url": "http://127.0.0.1:8000/mcp"
+    },
+    {
+      "id": "add_note",
+      "description": "Append a new note for a user and confirm success. Call to persist information tied to a specific user.",
+      "input": {"user_id": "string", "note": "string"},
+      "output": "boolean",
+      "url": "http://127.0.0.1:8000/mcp"
+    },
+    {
+      "id": "fetch_user",
+      "description": "Fetch a user record by ID. Returns a typed Result with ok/value or ok/error_kind on failure.",
+      "input": {"user_id": "integer"},
+      "output": "object with ok, value, error, error_kind fields",
+      "url": "http://127.0.0.1:8000/mcp"
+    },
+    {
+      "id": "classify_status",
+      "description": "Map an HTTP status code to a typed error taxonomy constant (AUTH_EXPIRED, RATE_LIMIT, NOT_FOUND, TRANSIENT).",
+      "input": {"status_code": "integer"},
+      "output": "string (error kind constant)",
+      "url": "http://127.0.0.1:8000/mcp"
+    }
+  ]
+}
