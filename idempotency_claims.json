@@ -1,0 +1,17 @@
+{
+  "f66ebe0340cb5c08": {
+    "ts": 1780526290.146314,
+    "action": "welcome_email",
+    "recipient": "alice@example.com"
+  },
+  "d0bd5b15836ed5e1": {
+    "ts": 1780526290.1468759,
+    "action": "welcome_email",
+    "recipient": "bob@example.com"
+  },
+  "38776dfc479a25e5": {
+    "ts": 1780526290.1472268,
+    "action": "login_link",
+    "recipient": "alice@example.com"
+  }
+}

@@ -1,0 +1,3 @@
+{"key": "f66ebe0340cb5c08", "action": "welcome_email", "recipient": "alice@example.com", "result": "ok", "ts": 1780526290.146682}
+{"key": "d0bd5b15836ed5e1", "action": "welcome_email", "recipient": "bob@example.com", "result": "ok", "ts": 1780526290.147135}
+{"key": "38776dfc479a25e5", "action": "login_link", "recipient": "alice@example.com", "result": "ok", "ts": 1780526290.14739}
