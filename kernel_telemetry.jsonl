@@ -1,0 +1,5 @@
+{"verb": "fetch_user", "ok": false, "error_kind": "NOT_FOUND", "ms": 0.01}
+{"verb": "fetch_user", "ok": false, "error_kind": "NOT_FOUND", "ms": 0.01}
+{"verb": "fetch_user", "ok": true, "error_kind": null, "ms": 0.0}
+{"verb": "fetch_user", "ok": false, "error_kind": "RATE_LIMIT", "ms": 0.0}
+{"verb": "fetch_user", "ok": false, "error_kind": "TRANSIENT", "ms": 0.0}
